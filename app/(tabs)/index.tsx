@@ -12,9 +12,6 @@ export default function TabOneScreen() {
     <View style={[styles.container]}>
       {/* GIF-фон */}
       
-        {/* Размытие поверх GIF */}
-        <BlurView intensity={15} tint="light" style={styles.blurOverlay} />
-
         {/* Контент поверх GIF */}
         <View style={styles.overlay}>
           <Header />
@@ -36,6 +33,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: 'transparent'
   },
   background: {
     ...StyleSheet.absoluteFillObject, // Растягивает GIF на весь экран

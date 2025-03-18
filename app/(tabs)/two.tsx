@@ -2,21 +2,20 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native';
 import ProfileHeader from '@/components/header/ProfileHeader'
 import { BlurView } from 'expo-blur';
+import QuizNotify from '@/components/QuizNotify'
+import TodaysAnswers from '@/components/TodaysAnswers'
 
-export default function App() {
+export default function TabTwo() {
   return (
     <ScrollView style={styles.container}>
-      {/* Шапка */}
-      <ProfileHeader/>
 
-      {/* Карточка опроса */}
-      
-      <View
-      style={styles.cardContainer}
-      >
+      <ProfileHeader/>
+      <QuizNotify style={styles.cardContainer}/>
+      <TodaysAnswers style={styles.cardContainer}/>
+      <View>
         <BlurView 
-        intensity={3}
-        style={styles.card}>
+        intensity={40} tint='extraLight'
+        style={styles.cardContainer}>
           <Text style={styles.cardTitle}>Пропущене опитування</Text>
           <Text style={styles.surveyDate}>17</Text>
           <Text style={styles.surveyQuestion}>Ви стискали щелепу?</Text>
@@ -70,7 +69,7 @@ const styles = StyleSheet.create({
   /* Основной контейнер */
   container: {
     flex: 1,
-    backgroundColor: '#F4F6FA', // Нежный фон
+    backgroundColor: 'transparent', // Нежный фон
     padding: 16,
   },
 
@@ -92,8 +91,13 @@ const styles = StyleSheet.create({
 
   /* Общая карточка */
   cardContainer: {
-    borderWidth: '5',
-    borderColor: 'rgba(246, 246, 246, 0.3)',
+    paddingHorizontal: 10,
+    paddingVertical: 14,
+    borderWidth: '2',
+    borderColor: 'rgba(255, 255, 255, 0.5)',
+    borderRadius: 24,
+    overflow: 'hidden',
+    marginBottom: 15,
   },
   card: {
     
