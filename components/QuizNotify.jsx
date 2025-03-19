@@ -9,16 +9,17 @@ import {
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
+import PoppinsText from "./textComponents/PoppinsText";
 
 export default function QuizNotify({ style }) {
   return (
     <View style={styles.safeArea}>
           <BlurView 
-          intensity={40} tint='extraLight'
+          intensity={60} tint='extraLight'
           style={style}>
-            <Text style={styles.cardTitle}>Пропущене опитування</Text>
-            <Text style={styles.surveyDate}>17</Text>
-            <Text style={styles.surveyQuestion}>Ви стискали щелепу?</Text>
+            <PoppinsText style={styles.cardTitle}>Пропущене опитування</PoppinsText>
+            <PoppinsText style={styles.surveyDate}>17</PoppinsText>
+            <PoppinsText style={styles.surveyQuestion}>Ви стискали щелепу?</PoppinsText>
           </BlurView>
     </View>
   );
@@ -26,7 +27,7 @@ export default function QuizNotify({ style }) {
 
 const styles = StyleSheet.create({
   safeArea: {
-    width: "100%",
+    flex: 1,
     backgroundColor: "transparent", // Фон для SafeAreaView
   },
   cardTitle:{

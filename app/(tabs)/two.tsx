@@ -4,14 +4,42 @@ import ProfileHeader from '@/components/header/ProfileHeader'
 import { BlurView } from 'expo-blur';
 import QuizNotify from '@/components/QuizNotify'
 import TodaysAnswers from '@/components/TodaysAnswers'
+import CircleProgressComponent from '@/components/CircleProgressComponent'
+import Heartbeat from '@/components/Heartbeat'
+
 
 export default function TabTwo() {
   return (
     <ScrollView style={styles.container}>
+      <ProfileHeader/> 
+      <View style={styles.blurContainer}>
+        <QuizNotify style={styles.cardContainer}/>
+      </View>
+      <View style={styles.blurContainer}>
+        <TodaysAnswers style={styles.cardContainer}/>
+      </View>
+      <View style={styles.twoColsContainer}>
+        <View style={styles.blurContainer}>
+          <CircleProgressComponent style={styles.cardContainer} />
+          {/* progress={30} size={130} strokeWidth={27} */}
+        </View>
+        <View style={styles.blurContainer}>
+          <Heartbeat style={styles.cardContainer}/>
+        </View>
+        
+      </View>
 
-      <ProfileHeader/>
-      <QuizNotify style={styles.cardContainer}/>
-      <TodaysAnswers style={styles.cardContainer}/>
+      {/* <View style={styles.card}>
+        <Text style={styles.title}>{title}</Text>
+        {icon ? (
+          <Image source={icon} style={styles.icon} />
+        ) : (
+          <CircularProgress progress={0.5} />
+        )}
+        {value && <Text style={styles.value}>{value}</Text>}
+      </View> */}
+      
+      
       <View>
         <BlurView 
         intensity={40} tint='extraLight'
@@ -21,6 +49,7 @@ export default function TabTwo() {
           <Text style={styles.surveyQuestion}>Ви стискали щелепу?</Text>
         </BlurView>
       </View>
+      
 
       {/* Карточка ответов */}
       <View style={styles.card}>
@@ -72,7 +101,21 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent', // Нежный фон
     padding: 16,
   },
-
+  twoColsContainer: {
+    gap: 15,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    flex: 1,
+  },
+  blurContainer: {
+    borderWidth: '2',
+    borderColor: 'rgb(223, 223, 223)',
+    borderRadius: 30,
+    overflow: 'hidden',
+    marginBottom: 15,
+    flex: 1
+  },
   /* Шапка */
   header: {
     flexDirection: 'row',
@@ -93,11 +136,13 @@ const styles = StyleSheet.create({
   cardContainer: {
     paddingHorizontal: 10,
     paddingVertical: 14,
-    borderWidth: '2',
-    borderColor: 'rgba(255, 255, 255, 0.5)',
-    borderRadius: 24,
+    
+    // borderWidth: '2',
+    // borderColor: 'rgba(255, 255, 255, 0.5)',
+    // borderRadius: 20,
     overflow: 'hidden',
-    marginBottom: 15,
+    flex: 1
+    // marginBottom: 15,
   },
   card: {
     

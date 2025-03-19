@@ -5,13 +5,15 @@ import EditScreenInfo from "@/components/EditScreenInfo";
 import { Text, View } from "@/components/Themed";
 import Header from "../../components/header/ProfileHeader";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import PoppinsText from '@/components/textComponents/PoppinsText'
 
 export default function TabOneScreen() {
   const insets = useSafeAreaInsets();
   return (
     <View style={[styles.container]}>
       {/* GIF-фон */}
-      
+      <Text>Default font</Text>      
+      <PoppinsText>HELLO POPPINS</PoppinsText>
         {/* Контент поверх GIF */}
         <View style={styles.overlay}>
           <Header />

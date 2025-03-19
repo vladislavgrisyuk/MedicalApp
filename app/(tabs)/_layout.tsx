@@ -9,6 +9,9 @@ import { ImageBackground } from 'expo-image';
 import Header from '@/components/header/ProfileHeader';
 import TabOneScreen from '@/app/(tabs)/index'
 import TabTwo from './two';
+import { BlurView } from 'expo-blur';
+import Feather from '@expo/vector-icons/Feather';
+import AntDesign from '@expo/vector-icons/AntDesign';
 
 const Tab = createBottomTabNavigator();
 
@@ -45,37 +48,65 @@ export default function TabLayout() {
       style={styles.background}
       contentFit="cover"
       />
-        <Tab.Navigator
-          screenOptions={{
-            sceneStyle: {
-              backgroundColor: 'transparent'
-            },
-            tabBarStyle: {
-              backgroundColor: 'blue',
-              position: 'absolute', // Позволяет содержимому отображаться под панелью вкладок
-              elevation: 0,         // Убирает тень на Android
-              borderTopWidth: 0,    // Убирает границу сверху на iOS
-            },
-          }}
-          tabBar={(props) => <CustomTabBar {...props} />}
-        >
-          <Tab.Screen
-            name="TabOne"
-            component={TabOneScreen1}
-            options={{
-              title: 'Tab One',
-              tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        <BlurView intensity={20} tint='light' style={{flex: 1}}>
+          <Tab.Navigator
+            screenOptions={{
+              sceneStyle: {
+                backgroundColor: 'transparent',
+              },
+              headerShown: false,
+              tabBarStyle: {
+                backgroundColor: 'blue',
+                position: 'absolute', // Позволяет содержимому отображаться под панелью вкладок
+                elevation: 0,         // Убирает тень на Android
+                borderTopWidth: 0,    // Убирает границу сверху на iOS
+              },
             }}
-          />
-          <Tab.Screen
-            name="TabTwo"
-            component={TabTwoScreen}
-            options={{
-              title: 'Tab Two',
-              tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-            }}
-          />
-        </Tab.Navigator>
+            tabBar={(props) => <CustomTabBar {...props} />}
+          >
+            <Tab.Screen
+              name="TabOne"
+              component={TabOneScreen1}
+              options={{
+                title: 'Tab One',
+                tabBarIcon: ({ color }) => <Feather name="home" size={24} color={color} />,
+              }}
+            />
+            <Tab.Screen
+              name="TabTwo"
+              component={TabTwoScreen}
+              options={{
+                title: 'Tab Two',
+                tabBarIcon: ({ color }) => <AntDesign name="barschart" size={29} color={color} />,
+              }}
+            />
+            <Tab.Screen
+              name="TabThree"
+              component={TabTwoScreen}
+              options={{
+                title: 'Tab Two',
+                tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+              }}
+            />
+            <Tab.Screen
+              name="TabFour"
+              component={TabTwoScreen}
+              options={{
+                title: 'Tab Two',
+                tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+              }}
+            />
+
+             <Tab.Screen
+              name="TabFive"
+              component={TabTwoScreen}
+              options={{
+                title: 'Tab Two',
+                tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+              }}
+            />
+          </Tab.Navigator>
+        </BlurView>
     </View>
   );
 }

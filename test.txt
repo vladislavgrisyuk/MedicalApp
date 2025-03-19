@@ -1,0 +1,115 @@
+import React from "react";
+import { View, Text, StyleSheet, Image } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
+import { Svg, Circle, Defs, LinearGradient as SvgGradient, Stop } from "react-native-svg";
+
+const CircularProgress = ({ progress, size = 80, strokeWidth = 10 }) => {
+  const radius = (size - strokeWidth) / 2;
+  const circumference = 2 * Math.PI * radius;
+  const progressOffset = circumference - (progress / 10) * circumference;
+
+  return (
+    <Svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+      <Defs>
+        <SvgGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <Stop offset="0%" stopColor="orange" />
+          <Stop offset="50%" stopColor="yellow" />
+          <Stop offset="100%" stopColor="lightgreen" />
+        </SvgGradient>
+      </Defs>
+      {/* Фон круга */}
+      <Circle cx={size / 2} cy={size / 2} r={radius} stroke="#ddd" strokeWidth={strokeWidth} fill="none" />
+      {/* Прогресс */}
+      <Circle
+        cx={size / 2}
+        cy={size / 2}
+        r={radius}
+        stroke="url(#grad)"
+        strokeWidth={strokeWidth}
+        fill="none"
+        strokeDasharray={circumference}
+        strokeDashoffset={progressOffset}
+        strokeLinecap="round"
+        transform={`rotate(-90 ${size / 2} ${size / 2})`}
+      />
+      {/* Текст в центре */}
+      <Text
+        style={{
+          position: "absolute",
+          left: size / 2 - 12,
+          top: size / 2 - 8,
+          fontSize: 16,
+          fontWeight: "bold",
+          color: "#666",
+        }}
+      >
+        {progress}
+      </Text>
+    </Svg>
+  );
+};
+
+const HealthCard = ({ title, value, icon }) => {
+  return (
+    <View style={styles.card}>
+      <Text style={styles.title}>{title}</Text>
+      {icon ? (
+        <Image source={icon} style={styles.icon} />
+      ) : (
+        <CircularProgress progress={0.5} />
+      )}
+      {value && <Text style={styles.value}>{value}</Text>}
+    </View>
+  );
+};
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <HealthCard title="Інтенсивність болю" />
+      <HealthCard title="Серцебиття" value="60 ударів" />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 10,
+    padding: 20,
+    backgroundColor: "#eee",
+    flex: 1,
+  },
+  card: {
+    width: 150,
+    height: 150,
+    backgroundColor: "rgba(255, 255, 255, 0.2)",
+    borderRadius: 20,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 10,
+    shadowColor: "#000",
+    shadowOpacity: 0.2,
+    shadowRadius: 10,
+    shadowOffset: { width: 0, height: 4 },
+    backdropFilter: "blur(10px)",
+  },
+  title: {
+    fontSize: 14,
+    color: "#fff",
+    marginBottom: 5,
+  },
+  value: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "red",
+    marginTop: 5,
+  },
+  icon: {
+    width: 60,
+    height: 60,
+    resizeMode: "contain",
+  },
+});

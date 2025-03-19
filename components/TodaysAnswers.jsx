@@ -1,28 +1,29 @@
 import { BlurView } from 'expo-blur';
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import PoppinsText from './textComponents/PoppinsText';
 
 export default function TodaysAnswers({style}) {
   return (
     <View>
-      <BlurView intensity={40} tint='extraLight' style={style}>
+      <BlurView intensity={60} tint='extraLight' style={style}>
         <View style={styles.header}>
-            <Text style={styles.headerText}>Відповіді на сьогодні</Text>
+            <PoppinsText fontType='Bold' style={styles.headerText}>Відповіді на сьогодні</PoppinsText>
             <TouchableOpacity style={styles.addButton}>
-            <Text style={styles.addButtonText}>+</Text>
+                <PoppinsText style={styles.addButtonText}>+</PoppinsText>
             </TouchableOpacity>
         </View>
 
         {/* Красная полоса */}
        <View style={styles.barsContainer}>
         <View style={styles.row}>
-            <View style={[styles.bar, { backgroundColor: '#f44336' }]}>
+            <View style={[styles.bar, { backgroundColor: 'rgba(229, 57, 80, 1)' }]}>
             </View>
         </View>
 
         {/* Зеленая полоса */}
         <View style={styles.row}>
-            <View style={[styles.bar, { backgroundColor: '#4caf50' }]}>
+            <View style={[styles.bar, { backgroundColor: 'rgba(56, 197, 88, 1)' }]}>
             </View>
         </View>
        </View>
@@ -41,8 +42,8 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontSize: 16,
-    fontWeight: '600',
-    color: 'white'
+    color: 'white',
+    marginLeft: 5
   },
   barsContainer: {
     flexDirection: 'row'
@@ -51,14 +52,15 @@ const styles = StyleSheet.create({
     width: 28,
     height: 28,
     borderRadius: 10,
-    backgroundColor: '#ff5b5b',
+    backgroundColor: 'rgba(236, 14, 82, 1)',
     justifyContent: 'center',
     alignItems: 'center',
+    boxShadow: 'inset 5 5 7 -2 rgba(255, 255, 255, 0.5)'
+    
   },
   addButtonText: {
     color: '#fff',
     fontSize: 18,
-    lineHeight: 22,
   },
   row: {
     flexDirection: 'row',
@@ -74,7 +76,8 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     paddingHorizontal: 12,
     marginRight: 8,
-    flex:2
+    flex:1,
+    boxShadow: 'inset 4 15 17 -2 rgba(255, 255, 255, 0.5)'
   },
   barText: {
     color: '#fff',
