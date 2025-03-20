@@ -8,6 +8,8 @@ import {
   SafeAreaView,
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
+import PoppinsText from "../textComponents/PoppinsText";
+import Fontisto from "@expo/vector-icons/Fontisto";
 
 export default function Header() {
   const handleBellPress = () => {
@@ -24,8 +26,8 @@ export default function Header() {
             style={styles.avatar}
           />
           <View style={styles.textContainer}>
-            <Text style={styles.greeting}>Ласкаво просимо,</Text>
-            <Text style={styles.userName}>Mapie</Text>
+            <PoppinsText style={styles.greeting}>Ласкаво просимо,</PoppinsText>
+            <PoppinsText style={styles.userName}>Владислав</PoppinsText>
           </View>
         </View>
 
@@ -34,7 +36,7 @@ export default function Header() {
           style={styles.bellContainer}
           onPress={handleBellPress}
         >
-          <FontAwesome name="bell" size={24} color="#000" />
+          <Fontisto name="bell" size={24} color="black" />
           <View style={styles.notificationDot} />
         </TouchableOpacity>
       </View>
@@ -71,27 +73,30 @@ const styles = StyleSheet.create({
     marginLeft: 12,
   },
   greeting: {
-    fontSize: 14,
-    color: "gray",
+    fontSize: 16,
+    color: "white",
   },
   userName: {
-    fontSize: 18,
+    fontSize: 24,
     fontWeight: "bold",
-    color: "#000",
+    color: "white",
   },
   bellContainer: {
     backgroundColor: "white",
     position: "relative",
     padding: 12,
-    borderRadius: 8,
+    borderRadius: 13,
   },
   notificationDot: {
     width: 8,
     height: 8,
     borderRadius: 4,
+    overflow: "hidden",
     backgroundColor: "red",
     position: "absolute",
-    top: 0,
-    right: 0,
+    borderWidth: 2,
+    borderColor: "white",
+    top: 14,
+    right: 12,
   },
 });

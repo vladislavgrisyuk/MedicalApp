@@ -10,17 +10,26 @@ import {
 import { FontAwesome } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
 import PoppinsText from "./textComponents/PoppinsText";
+import Notify from "@/assets/images/notify.svg";
 
 export default function QuizNotify({ style }) {
   return (
     <View style={styles.safeArea}>
-          <BlurView 
-          intensity={60} tint='extraLight'
-          style={style}>
-            <PoppinsText style={styles.cardTitle}>Пропущене опитування</PoppinsText>
-            <PoppinsText style={styles.surveyDate}>17</PoppinsText>
-            <PoppinsText style={styles.surveyQuestion}>Ви стискали щелепу?</PoppinsText>
-          </BlurView>
+      <BlurView intensity={60} tint="extraLight" style={style}>
+        <View style={styles.dataContainer}>
+          <View>
+            <Notify />
+          </View>
+          <View>
+            <PoppinsText style={styles.cardTitle}>
+              Пропущене опитування
+            </PoppinsText>
+            <PoppinsText style={styles.surveyQuestion}>
+              Ви стискали щелепу?
+            </PoppinsText>
+          </View>
+        </View>
+      </BlurView>
     </View>
   );
 }
@@ -30,14 +39,14 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "transparent", // Фон для SafeAreaView
   },
-  cardTitle:{
-    color: 'white'
+  cardTitle: {
+    color: "white",
   },
   cardContainer: {
     paddingHorizontal: 10,
     paddingVertical: 14,
-    borderWidth: '2',
-    borderColor: 'rgb(179, 4, 4)',
+    borderWidth: "2",
+    borderColor: "rgb(179, 4, 4)",
     borderRadius: 2,
   },
   headerContainer: {
