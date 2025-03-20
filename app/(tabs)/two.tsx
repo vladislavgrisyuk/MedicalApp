@@ -13,6 +13,7 @@ import TodaysAnswers from "@/components/TodaysAnswers";
 import CircleProgressComponent from "@/components/CircleProgressComponent";
 import Heartbeat from "@/components/Heartbeat";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import ArticleThumbnail from '@/components/ArticleThumbnail'
 
 export default function TabTwo() {
   const insets = useSafeAreaInsets();
@@ -36,6 +37,9 @@ export default function TabTwo() {
           <Heartbeat style={styles.cardContainer} />
         </View>
       </View>
+      <View style={{marginBottom: 200}}>
+        <ArticleThumbnail style={styles.blurContainer}/>
+      </View>
 
       {/* <View style={styles.card}>
         <Text style={styles.title}>{title}</Text>
@@ -47,53 +51,8 @@ export default function TabTwo() {
         {value && <Text style={styles.value}>{value}</Text>}
       </View> */}
 
-      <View>
-        <BlurView intensity={40} tint="extraLight" style={styles.cardContainer}>
-          <Text style={styles.cardTitle}>Пропущене опитування</Text>
-          <Text style={styles.surveyDate}>17</Text>
-          <Text style={styles.surveyQuestion}>Ви стискали щелепу?</Text>
-        </BlurView>
-      </View>
-
       {/* Карточка ответов */}
-      <View style={styles.card}>
-        {/* Заголовок и кнопка добавления */}
-        <View style={styles.answersHeader}>
-          <Text style={styles.cardTitle}>Відповіді на сьогодні</Text>
-          <TouchableOpacity style={styles.addButton}>
-            <Text style={styles.addButtonText}>+</Text>
-          </TouchableOpacity>
-        </View>
-        {/* Сами ответы */}
-        <View style={styles.answersRow}>
-          <View style={styles.answerItem}>
-            <Text style={styles.answerLabel}>Стискав</Text>
-            <View style={styles.answerValueBox}>
-              <Text style={styles.answerValue}>3</Text>
-            </View>
-          </View>
-          <View style={styles.answerItem}>
-            <Text style={styles.answerLabel}>Не стискав</Text>
-            <View style={styles.answerValueBox}>
-              <Text style={styles.answerValue}>10</Text>
-            </View>
-          </View>
-        </View>
-      </View>
-
-      {/* Карточка статистики */}
-      <View style={styles.card}>
-        <View style={styles.statsRow}>
-          <View style={styles.statBox}>
-            <Text style={styles.statTitle}>Інтенсивність болю</Text>
-            <Text style={styles.statValue}>7.5</Text>
-          </View>
-          <View style={styles.statBox}>
-            <Text style={styles.statTitle}>Серцебиття</Text>
-            <Text style={styles.statValue}>60 ударів</Text>
-          </View>
-        </View>
-      </View>
+      
     </ScrollView>
   );
 }
@@ -103,7 +62,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "transparent", // Нежный фон
-    padding: 16,
+    padding: 24,
   },
   twoColsContainer: {
     gap: 15,
@@ -113,12 +72,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   blurContainer: {
-    borderWidth: "2",
+    borderWidth: 1,
     borderColor: "rgb(223, 223, 223)",
     borderRadius: 30,
     overflow: "hidden",
     marginBottom: 15,
     flex: 1,
+    boxShadow: '0 1 5 rgba(0, 0, 0, 0.16)'
   },
   /* Шапка */
   header: {

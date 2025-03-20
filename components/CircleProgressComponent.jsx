@@ -10,6 +10,7 @@ import {
 import { FontAwesome } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
 import CircleProgress from './CircleProgress'
+import PoppinsText from "./textComponents/PoppinsText";
 
 export default function CircleProgressComponent({ style }) {
   return (
@@ -20,8 +21,8 @@ export default function CircleProgressComponent({ style }) {
             <View style={styles.dataContainer}>
                 <Text style={styles.cardTitle}>Інтенсивність болю</Text>
                 <View style={ styles.circleContainer }>
-                    <Text style={styles.painValueText}>7.5</Text>
-                    <CircleProgress progress={30} size={130} strokeWidth={27}/>
+                    <PoppinsText fontType="SemiBold" style={styles.painValueText}>7.5</PoppinsText>
+                    <CircleProgress progress={70} size={130} strokeWidth={27}/>
                 </View>
             </View>
           </BlurView>
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
   painValueText: {
     position: 'absolute',
     color: 'rgba(123, 111, 114, 1)',
-    top: '40%',
+    top: '38%',
     fontSize: '25'
   },
   circleContainer: {

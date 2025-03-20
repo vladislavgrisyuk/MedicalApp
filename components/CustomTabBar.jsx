@@ -8,7 +8,7 @@ export default function CustomTabBar({ state, descriptors, navigation }) {
 
   return (
     <View
-    style ={[styles.tabBar, { paddingHorizontal: 14}]}
+    style ={[styles.tabBar, { marginHorizontal: 16}]}
     >
       <BlurView
       tint="extraLight"
@@ -66,7 +66,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     left: 0,
     right: 0,
-    bottom: 0,
+    bottom: 25,
+    borderRadius: 45,
     
     // borderTopLeftRadius: 20,
     // borderTopRightRadius: 20,
@@ -74,7 +75,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowOffset: { width: 0, height: -2 },
     shadowRadius: 5,
-    height: 130,
+    height: 90,
+    borderWidth: 1,
+    borderColor: "rgba(255, 255, 255, 0.58)",
   },
   tabBarInner: {
     height: 90,
@@ -82,11 +85,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     width: '100%',
     borderRadius: 45,
-    overflow: "hidden",
+    
     // backgroundColor: 'black',
-    paddingVertical: '18',
-    borderColor: "rgba(180, 180, 180, 0.29)",
-    borderWidth: 1,
     
   },
   tabBarContainer: {
@@ -116,7 +116,6 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     shadowColor: "rgba(97, 74, 211, 1)",
     shadowRadius: 9,
-    
     shadowOpacity: 5,
     shadowOffset: { width: 0, height: 0 },
   },
@@ -134,5 +133,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowOffset: { width: 0, height: 3 },
     elevation: 6,
+    // zIndex: 1000,
+    // position: 'absolute'
   },
 });

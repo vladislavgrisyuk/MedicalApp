@@ -16,14 +16,14 @@ export default function TodaysAnswers({style}) {
 
         {/* Красная полоса */}
        <View style={styles.barsContainer}>
-        <View style={styles.row}>
+        <View style={[styles.row, styles.barRed]}>
             <View style={[styles.bar, { backgroundColor: 'rgba(229, 57, 80, 1)' }]}>
             </View>
         </View>
 
         {/* Зеленая полоса */}
-        <View style={styles.row}>
-            <View style={[styles.bar, { backgroundColor: 'rgba(56, 197, 88, 1)' }]}>
+        <View style={[styles.row, styles.barGreen]}>
+            <View style={[styles.bar, styles.barGreen,{ backgroundColor: 'rgba(56, 197, 88, 1)' }]}>
             </View>
         </View>
        </View>
@@ -46,7 +46,8 @@ const styles = StyleSheet.create({
     marginLeft: 5
   },
   barsContainer: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    
   },
   addButton: {
     width: 28,
@@ -69,15 +70,21 @@ const styles = StyleSheet.create({
     flex:1
   },
   bar: {
-    height: '40',
+    height: '47',
     flexDirection: 'row',
     alignItems: 'center',
     borderRadius: 20,
     paddingVertical: 6,
     paddingHorizontal: 12,
     marginRight: 8,
-    flex:1,
+    flex: 1,
     boxShadow: 'inset 4 15 17 -2 rgba(255, 255, 255, 0.5)'
+  },
+  barRed: {
+    flexGrow: 1
+  },
+  barGreen: {
+    flexGrow: 3
   },
   barText: {
     color: '#fff',

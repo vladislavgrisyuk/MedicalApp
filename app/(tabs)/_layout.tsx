@@ -2,16 +2,16 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Colors from "@/constants/Colors";
 import { useColorScheme } from "@/components/useColorScheme";
 import CustomTabBar from "@/components/CustomTabBar";
 import { ImageBackground } from "expo-image";
-import Header from "@/components/header/ProfileHeader";
 import TabOneScreen from "@/app/(tabs)/index";
 import TabTwo from "./two";
 import { BlurView } from "expo-blur";
 import Feather from "@expo/vector-icons/Feather";
 import AntDesign from "@expo/vector-icons/AntDesign";
+import Ionicons from '@expo/vector-icons/Ionicons';
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 
 const Tab = createBottomTabNavigator();
 
@@ -75,7 +75,7 @@ export default function TabLayout() {
         >
           <Tab.Screen
             name="TabOne"
-            component={TabOneScreen1}
+            component={TabTwoScreen}
             options={{
               title: "Tab One",
               tabBarIcon: ({ color }) => (
@@ -99,7 +99,7 @@ export default function TabLayout() {
             options={{
               title: "Tab Two",
               tabBarIcon: ({ color }) => (
-                <TabBarIcon name="code" color={color} />
+                <FontAwesome name="plus" size={24} color={color} />
               ),
             }}
           />
@@ -109,7 +109,7 @@ export default function TabLayout() {
             options={{
               title: "Tab Two",
               tabBarIcon: ({ color }) => (
-                <TabBarIcon name="code" color={color} />
+                <Ionicons name="newspaper-outline" size={27} color={color} />
               ),
             }}
           />
@@ -120,7 +120,7 @@ export default function TabLayout() {
             options={{
               title: "Tab Two",
               tabBarIcon: ({ color }) => (
-                <TabBarIcon name="code" color={color} />
+                <FontAwesome5 name="user" size={24} color={color} />
               ),
             }}
           />

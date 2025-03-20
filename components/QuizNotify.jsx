@@ -17,10 +17,10 @@ export default function QuizNotify({ style }) {
     <View style={styles.safeArea}>
       <BlurView intensity={60} tint="extraLight" style={style}>
         <View style={styles.dataContainer}>
-          <View>
-            <Notify />
+          <View style={styles.imageContainer}>
+            <Notify width={40} height={40} />
           </View>
-          <View>
+          <View style={styles.textContainer}>
             <PoppinsText style={styles.cardTitle}>
               Пропущене опитування
             </PoppinsText>
@@ -41,6 +41,28 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     color: "white",
+    fontSize: 16,
+    fontWeight: 400,
+    opacity: 0.8
+  },
+  textContainer: {
+    justifyContent: 'center',
+    paddingLeft: 13
+  },
+  dataContainer: {
+    flexDirection: 'row',
+    paddingHorizontal: 13,
+    paddingVertical: 4
+  },
+  surveyQuestion: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 19
+  },
+  imageContainer: {
+    backgroundColor: 'rgba(255,255,255,0.5)',
+    padding: 15,
+    borderRadius: '100%'
   },
   cardContainer: {
     paddingHorizontal: 10,
@@ -68,9 +90,6 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 25,
-  },
-  textContainer: {
-    marginLeft: 12,
   },
   greeting: {
     fontSize: 14,
